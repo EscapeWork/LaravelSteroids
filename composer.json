@@ -1,0 +1,24 @@
+{
+    "name": "Laravel Steroids",
+    "description": "Steroids for laravel5.",
+    "keywords": ["laravel"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "laravel/framework": "5.0.*"
+    },
+
+    "require-dev": {
+        "phpspec/phpspec": "~2.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "EscapeWork\\LaravelSteroids\\": "app/"
+        }
+    },
+
+    "config": {
+        "preferred-install": "stable"
+    }
+}
