@@ -3,18 +3,35 @@
     "description": "Steroids for laravel5.",
     "keywords": ["laravel"],
     "license": "MIT",
-    "type": "project",
+    "type": "library",
+
     "require": {
-        "laravel/framework": "5.0.*"
+        "php": ">=5.4.0",
+        "illuminate/bus": "5.0.*"
     },
+
+    "authors": [
+        {
+            "name": "Eduardo Henrique Kasper",
+            "email": "ehkasper@gmail.com",
+            "homepage": "http://ehkasper.com",
+            "role": "Web Developer"
+        },
+        {
+            "name": "Luís Dalmolin",
+            "email": "luis.nh@gmail.com",
+            "homepage": "http://luisdalmolin.com.br",
+            "role": "Web Developer"
+        }
+    ],
 
     "require-dev": {
         "phpspec/phpspec": "~2.1"
     },
 
     "autoload": {
-        "psr-4": {
-            "EscapeWork\\LaravelSteroids\\": "app/"
+        "psr-0": {
+            "EscapeWork\\LaravelSteroids": "src/"
         }
     },
 
