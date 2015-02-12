@@ -1,5 +1,5 @@
 {
-    "name": "Laravel Steroids",
+    "name": "escapework/laravel-steroids",
     "description": "Steroids for laravel5.",
     "keywords": ["laravel"],
     "license": "MIT",
@@ -30,12 +30,15 @@
     },
 
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "EscapeWork\\LaravelSteroids": "src/"
         }
     },
 
-    "config": {
-        "preferred-install": "stable"
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.*-dev"
+        }
     }
+
 }
