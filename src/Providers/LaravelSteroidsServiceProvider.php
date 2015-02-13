@@ -29,10 +29,7 @@ class LaravelSteroidsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            'Illuminate\Contracts\Bus\Dispatcher',
-            'EscapeWork\LaravelSteroids\Dispatcher'
-        );
+
     }
 
 }
