@@ -1,4 +1,4 @@
-<?php namespace EscapeWork\LaravelSteroids;
+<?php namespace EscapeWork\LaravelSteroids\Traits;
 
 use Illuminate\Support\Str;
 
