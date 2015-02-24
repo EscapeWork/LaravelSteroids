@@ -2,16 +2,15 @@
 
 use Illuminate\Database\Eloquent\Collection;
 
-class BaseCollection extends Collection
+class Collection extends Collection
 {
 
     /**
      * Combobox options
      */
     protected $comboxBoxOptions = [
-        'empty_option'       => false,
+        'empty_option'       => true,
         'empty_option_label' => 'Selecione',
-        'field'              => 'title',
     ];
 
     public function combobox($options = [])
@@ -24,7 +23,7 @@ class BaseCollection extends Collection
         }
 
         foreach ($this->items as $item) {
-            $data[$item->{$item->getKeyName()}] = $item->$options['field'];
+            $data[$item->{$item->getKeyName()}] = $item->getTitle();
         }
 
         return $data;

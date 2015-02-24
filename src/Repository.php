@@ -1,8 +1,16 @@
-<?php namespace EscapeWork\LaravelSteroids\Repositories;
+<?php namespace EscapeWork\LaravelSteroids;
 
-abstract class Repository {
+use Illuminate\Database\Eloquent\Model;
+
+abstract class Repository 
+{
 
     protected $model;
+
+    public function setModel(Model $model)
+    {
+        $this->model = $model;
+    }
 
     public function __call($method, $args)
     {
