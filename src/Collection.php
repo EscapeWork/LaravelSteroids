@@ -1,8 +1,8 @@
-<?php namespace EscapeWork\LaravelSteroids\Collections;
+<?php namespace EscapeWork\LaravelSteroids;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Collection as BaseCollection;
 
-class Collection extends Collection
+class Collection extends BaseCollection
 {
 
     /**
