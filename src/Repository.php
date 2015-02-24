@@ -1,13 +1,11 @@
 <?php namespace EscapeWork\LaravelSteroids;
 
-use Illuminate\Database\Eloquent\Model;
-
 abstract class Repository 
 {
 
     protected $model;
 
-    public function setModel(Model $model)
+    public function setModel($model)
     {
         $this->model = $model;
     }
