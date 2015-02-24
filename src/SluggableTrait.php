@@ -34,25 +34,24 @@ trait SluggableTrait
 
     protected function _makeSlug()
     {
-        $attr       = $this->sluggableAttr;
-        $field      = $this->slugAttr;
+        $field = $this->sluggableField;
+        $attr  = $this->sluggableAttr;
 
-        $this->$field = Str::slug($this->$attr);
+        $this->{$field} = Str::slug($this->{$attr});
         $count      = 0;
 
         while ($this->slugExists()) {
             $count++;
-            $this->$field = Str::slug($this->$attr) . '-' . $count;
+            $this->{$field} = Str::slug($this->$attr) . '-' . $count;
         }
     }
 
     protected function slugExists()
     {
         $key   = $this->primaryKey;
-        $field  = $this->slugAttr;
-        $value  = $this->$field;
+        $field = $this->sluggableField;
 
-        $query = $this->where($field, '=', $value);
+        $query = $this->where($field, '=', $this->$field);
 
         if ($this->exists) {
             $query->where($key, '<>', $this->$key);

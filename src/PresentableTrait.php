@@ -1,7 +1,5 @@
 <?php namespace EscapeWork\LaravelSteroids;
 
-use ReflectionClass;
-
 trait PresentableTrait
 {
 
@@ -10,11 +8,6 @@ trait PresentableTrait
      */
     protected $present;
 
-    /**
-     * The presenter class
-     */
-    protected $presenter;
-
     public function getPresentAttribute()
     {
         return $this->present();
@@ -22,11 +15,10 @@ trait PresentableTrait
 
     protected function present()
     {
-        if (! $this->presenter) {
-			$reflection      = new ReflectionClass($this);
-			$this->presenter = new $presenter($this);
+        if (! $this->present) {
+            $this->present = new $this->presenter($this);
         }
 
-        return $this->presenter;
+        return $this->present;
     }
 }
