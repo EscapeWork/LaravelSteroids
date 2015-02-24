@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Carbon\Carbon;
+use InvalidArgumentException;
 
 abstract class Model extends Eloquent
 {
