@@ -21,7 +21,7 @@ abstract class Presenter
 
     public function __call($method, $args)
     {
-        if (method_exists($this, $field)) {
+        if (method_exists($this, $method)) {
             return $this->{$method}($args);
         }
 
