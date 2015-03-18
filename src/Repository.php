@@ -10,6 +10,11 @@ abstract class Repository
         $this->model = $model;
     }
 
+    public function model()
+    {
+        return $this->model;
+    }
+
     public function __call($method, $args)
     {
         return call_user_func_array(array($this->model, $method), $args);
