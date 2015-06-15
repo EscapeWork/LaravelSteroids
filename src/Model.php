@@ -63,11 +63,11 @@ abstract class Model extends Eloquent
         $traits = class_uses($model);
 
         if (in_array('Illuminate\Database\Eloquent\SoftDeletingTrait', $traits)) {
-             if ($existing = static::withTrashed()->find($data['id'])) {
+             if ($existing = static::withTrashed()->find($data[$model->{$model->primaryKey}])) {
                 $model = $existing;
              }
         } else {
-            if ($existing = static::find($data['id'])) {
+            if ($existing = static::find($data[$model->{$model->primaryKey}])) {
                 $model = $existing;
              }
         }
