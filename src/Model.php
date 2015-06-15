@@ -59,15 +59,16 @@ abstract class Model extends Eloquent
 
     public static function seed($data)
     {
-        $model  = new static;
-        $traits = class_uses($model);
+        $model      = new static;
+        $traits     = class_uses($model);
+        $primaryKey = $model->primaryKey;
 
         if (in_array('Illuminate\Database\Eloquent\SoftDeletingTrait', $traits)) {
-             if ($existing = static::withTrashed()->find($data[$model->{$model->primaryKey}])) {
+             if ($existing = static::withTrashed()->find($data[$primaryKey])) {
                 $model = $existing;
              }
         } else {
-            if ($existing = static::find($data[$model->{$model->primaryKey}])) {
+            if ($existing = static::find($data[$primaryKey])) {
                 $model = $existing;
              }
         }
