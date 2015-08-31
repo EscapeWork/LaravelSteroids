@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelSteroids;
+<?php
+
+namespace EscapeWork\LaravelSteroids;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Carbon\Carbon;

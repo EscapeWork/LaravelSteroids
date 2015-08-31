@@ -1,6 +1,8 @@
-<?php namespace EscapeWork\LaravelSteroids;
+<?php
 
-abstract class Repository 
+namespace EscapeWork\LaravelSteroids;
+
+abstract class Repository
 {
 
     protected $model;

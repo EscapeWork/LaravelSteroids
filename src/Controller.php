@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelSteroids;
+<?php
+
+namespace EscapeWork\LaravelSteroids;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

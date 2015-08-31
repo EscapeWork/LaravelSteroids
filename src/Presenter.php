@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelSteroids;
+<?php
+
+namespace EscapeWork\LaravelSteroids;
 
 abstract class Presenter
 {
@@ -26,5 +28,20 @@ abstract class Presenter
         }
 
         return $this->model->{$method};
+    }
+
+    public function __append()
+    {
+        $data = [];
+
+        foreach (get_class_methods($this) as $method) {
+            if (substr($method, 0, 2) === '__') {
+                continue;
+            }
+
+            $data[$method] = $this->{$method}();
+        }
+
+        return $data;
     }
 }
