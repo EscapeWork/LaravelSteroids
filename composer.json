@@ -35,7 +35,11 @@
     "autoload": {
         "psr-4": {
             "EscapeWork\\LaravelSteroids\\": "src/"
-        }
+        },
+
+        "files": [
+            "src/helpers.php"
+        ]
     },
 
     "extra": {
