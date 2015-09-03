@@ -2,12 +2,6 @@
 
 if (! function_exists('create_links')) {
     function create_links($text) {
-        $reg_exUrl = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
-
-        if (preg_match($reg_exUrl, $text, $url)) {
-            return preg_replace($reg_exUrl, "<a href="{$url[0]}">{$url[0]}</a> ", $text);
-        }
-
-        return $text;
+        return preg_replace('/(http[s]{0,1}\:\/\/\S{4,})\s{0,}/ims', '<a href="$1" target="_blank">$1</a> ', $text);
     }
 }
