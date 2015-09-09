@@ -115,5 +115,6 @@ abstract class Model extends Eloquent
 
         $model->fill($data);
         $model->save();
+        return $model;
     }
 }
