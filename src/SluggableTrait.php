@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 trait SluggableTrait
 {
 
-    public function update(array $attributes = array())
+    public function update(array $attributes = [], array $options = [])
     {
         if ($this->isSluggable()) {
             $this->_makeSlug();
         }
 
-        return parent::update($attributes);
+        return parent::update($attributes, $options);
     }
 
     public function save(array $options = array())
