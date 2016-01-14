@@ -2,7 +2,9 @@
 
 namespace EscapeWork\LaravelSteroids\Upload;
 
-class ValidateJob extends Job
+use Illuminate\Contracts\Bus\SelfHandling;
+
+class ValidateJob extends Job implements SelfHandling
 {
 
     /**
