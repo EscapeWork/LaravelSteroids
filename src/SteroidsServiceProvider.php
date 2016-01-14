@@ -14,4 +14,9 @@ class SteroidsServiceProvider extends ServiceProvider
             'EscapeWork\LaravelSteroids\MimeTypeArrayValidator@validate'
         );
     }
+
+    public function register()
+    {
+
+    }
 }
