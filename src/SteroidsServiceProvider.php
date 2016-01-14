@@ -11,7 +11,7 @@ class SteroidsServiceProvider extends ServiceProvider
     {
         $this->app->validator->extend(
             'mime_type_array',
-            'EscapeWork\LaravelSteroids\MimeTypeArrayValidator@validate'
+            'EscapeWork\LaravelSteroids\Upload\MimeTypeArrayValidator@validate'
         );
     }
 
