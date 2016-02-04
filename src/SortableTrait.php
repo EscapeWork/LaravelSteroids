@@ -14,10 +14,10 @@ trait SortableTrait
         'field' => 'order',
     ];
 
-    public function bootSortableTrait()
+    public static function bootSortableTrait()
     {
-        static::creating(function() {
-            $this->{$this->sortable['field']} = $this->getNextOrder();
+        static::creating(function($model) {
+            $model->{$model->sortable['field']} = $model->getNextOrder();
         });
     }
 
