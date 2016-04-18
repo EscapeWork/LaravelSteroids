@@ -30,4 +30,13 @@ class Collection extends BaseCollection
 
         return $data;
     }
+
+    public function transpose()
+    {
+        $items = array_map(function (...$items) {
+            return $items;
+        }, ...$this->values());
+
+        return new static($items);
+    }
 }
