@@ -11,15 +11,15 @@
 
     "authors": [
         {
-            "name": "Eduardo Henrique Kasper",
-            "email": "ehkasper@gmail.com",
-            "homepage": "http://ehkasper.com",
-            "role": "Web Developer"
-        },
-        {
             "name": "Luís Dalmolin",
             "email": "luis.nh@gmail.com",
             "homepage": "http://luisdalmolin.com.br",
+            "role": "Web Developer"
+        },
+        {
+            "name": "Eduardo Henrique Kasper",
+            "email": "ehkasper@gmail.com",
+            "homepage": "http://ehkasper.com",
             "role": "Web Developer"
         }
     ],
