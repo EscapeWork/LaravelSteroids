@@ -69,7 +69,7 @@ trait SluggableTrait
 
     public function findOrFailBySlug($slug)
     {
-        return $this->where($this->sluggableField, '=', $this->{$this->sluggableField})
+        return $this->where($this->sluggableField, '=', $slug)
                     ->firstOrFail();
     }
 }
