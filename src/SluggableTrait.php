@@ -66,4 +66,10 @@ trait SluggableTrait
     {
         $this->sluggable = $sluggable;
     }
+
+    public function findOrFailBySlug($slug)
+    {
+        return $this->where($this->sluggableField, '=', $this->{$this->sluggableField})
+                    ->firstOrFail();
+    }
 }
