@@ -33,9 +33,13 @@ class Collection extends BaseCollection
 
     public function transpose()
     {
-        $items = array_map(function (...$items) {
-            return $items;
-        }, ...$this->values());
+        if (version_compare(phpversion(), '5.6.0', '>') {
+            $items = array_map(function (...$items) {
+                return $items;
+            }, ...$this->values());
+
+            return new static($items);
+        }
 
         return new static($items);
     }
