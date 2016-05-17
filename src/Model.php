@@ -83,18 +83,28 @@ abstract class Model extends Eloquent
     public function scopeSearch($query, $field, $value)
     {
         $terms = explode(' ', $this->_removeRedexpValues($value));
-        return $query->where($field, 'regexp', implode('.+', $terms));
+
+        if (config('database.default') == 'sqlite') {
+            return $query->where($field, 'like', '%'.$value.'%');
+        }
+
+        return $query->where($field, 'REGEXP', implode('.+', $terms));
     }
 
     public function scopeOrSearch($query, $field, $value)
     {
         $terms = explode(' ', $this->_removeRedexpValues($value));
-        return $query->orWhere($field, 'regexp', implode('.+', $terms));
+
+        if (config('database.default') == 'sqlite') {
+            return $query->orWhere($field, 'like', '%'.$value.'%');
+        }
+
+        return $query->orWhere($field, 'REGEXP', implode('.+', $terms));
     }
 
     public function _removeRedexpValues($value)
     {
-        return trim(str_replace(['[', ']', '(', ')'], ' ', $value));
+        return trim(str_replace(['[', ']', '(', ')', '+'], ' ', $value));
     }
 
     public static function seed($data)
