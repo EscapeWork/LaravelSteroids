@@ -19,6 +19,8 @@ trait SortableTrait
         static::creating(function($model) {
             $model->{$model->sortable['field']} = $model->getNextOrder();
         });
+
+        static::addGlobalScope(new SortableScope('order'));
     }
 
     public function getNextOrder()
