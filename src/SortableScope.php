@@ -3,7 +3,7 @@
 namespace EscapeWork\LaravelSteroids;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Eloquent\ScopeInterface;
 
 class SortableScope implements ScopeInterface
@@ -18,12 +18,12 @@ class SortableScope implements ScopeInterface
         $this->direction = $direction;
     }
 
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, EloquentModel $model)
     {
         $builder->orderBy($this->column, $this->direction);
     }
 
-    public function remove(Builder $builder, Model $model)
+    public function remove(Builder $builder, EloquentModel $model)
     {
         $query = $builder->getQuery();
 
