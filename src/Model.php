@@ -5,6 +5,7 @@ namespace EscapeWork\LaravelSteroids;
 use Carbon\Carbon;
 use League\Fractal;
 use InvalidArgumentException;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 abstract class Model extends Eloquent
@@ -113,7 +114,7 @@ abstract class Model extends Eloquent
         $traits     = class_uses($model);
         $primaryKey = $model->primaryKey;
 
-        if (in_array('Illuminate\Database\Eloquent\SoftDeletingTrait', $traits)) {
+        if (in_array(SoftDeletes::class, $traits)) {
              if ($existing = static::withTrashed()->find($data[$primaryKey])) {
                 $model = $existing;
              }
