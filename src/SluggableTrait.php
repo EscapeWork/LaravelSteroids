@@ -3,6 +3,7 @@
 namespace EscapeWork\LaravelSteroids;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 trait SluggableTrait
 {
@@ -57,6 +58,10 @@ trait SluggableTrait
 
         if ($this->exists) {
             $query->where($key, '<>', $this->$key);
+        }
+
+        if (in_array(SoftDeletes::class, class_uses($this))) {
+            $query->withTrashed();
         }
 
         return $query->first();
