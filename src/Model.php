@@ -2,13 +2,13 @@
 
 namespace EscapeWork\LaravelSteroids;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
 use Carbon\Carbon;
+use League\Fractal;
 use InvalidArgumentException;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 abstract class Model extends Eloquent
 {
-
     /**
      * Sluggable attribute
      * @var  string
@@ -126,5 +126,13 @@ abstract class Model extends Eloquent
         $model->fill($data);
         $model->save();
         return $model;
+    }
+
+    public function transform($transformer)
+    {
+        $fractal  = new Fractal\Manager();
+        $resource = new Fractal\Resource\Item($this, new $transformer);
+
+        return $fractal->createData($resource);
     }
 }

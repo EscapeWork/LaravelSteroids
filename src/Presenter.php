@@ -4,7 +4,9 @@ namespace EscapeWork\LaravelSteroids;
 
 abstract class Presenter
 {
-
+    /**
+     * @var Illuminate\Database\Eloquent\Model
+     */
     protected $model;
 
     public function __construct($model)

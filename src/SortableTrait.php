@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 
 trait SortableTrait
 {
-
     /**
      * @var array
      */

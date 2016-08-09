@@ -4,7 +4,9 @@ namespace EscapeWork\LaravelSteroids;
 
 abstract class Repository
 {
-
+    /**
+     * @var Illuminate\Database\Eloquent\Model
+     */
     protected $model;
 
     public function setModel($model)

@@ -9,7 +9,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class Upload
 {
-
     /**
      * @trait Illuminate\Foundation\Bus\DispatchesJobs
      */

@@ -2,11 +2,11 @@
 
 namespace EscapeWork\LaravelSteroids;
 
+use League\Fractal;
 use Illuminate\Database\Eloquent\Collection as BaseCollection;
 
 class Collection extends BaseCollection
 {
-
     /**
      * Combobox options
      */
@@ -37,5 +37,14 @@ class Collection extends BaseCollection
         $items = call_user_func_array('array_map', $this->items);
 
         return new static($items);
+    }
+
+    public function modify($transformer)
+    {
+        $fractal     = new Fractal\Manager();
+        $resource    = new Fractal\Resource\Collection($this, new $transformer);
+        $this->items = $fractal->createData($resource)->toArray()['data'];
+
+        return $this;
     }
 }

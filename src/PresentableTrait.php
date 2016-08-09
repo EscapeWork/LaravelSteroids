@@ -4,7 +4,6 @@ namespace EscapeWork\LaravelSteroids;
 
 trait PresentableTrait
 {
-
     /**
      * The presenter
      */
