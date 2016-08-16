@@ -38,13 +38,4 @@ class Collection extends BaseCollection
 
         return new static($items);
     }
-
-    public function modify($transformer)
-    {
-        $fractal     = new Fractal\Manager();
-        $resource    = new Fractal\Resource\Collection($this, new $transformer);
-        $this->items = $fractal->createData($resource)->toArray()['data'];
-
-        return $this;
-    }
 }
