@@ -20,7 +20,7 @@ trait Cacheable
     public function clearCaches()
     {
         foreach ($this->cacheables as $cacheable) {
-            Cache::forget($this->table.'.'.$cacheable);
+            Cache::forget($cacheable);
         }
     }
 }
