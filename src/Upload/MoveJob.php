@@ -2,10 +2,9 @@
 
 namespace EscapeWork\LaravelSteroids\Upload;
 
-use Illuminate\Contracts\Bus\SelfHandling;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class MoveJob extends Job implements SelfHandling
+class MoveJob extends Job
 {
 
     /**

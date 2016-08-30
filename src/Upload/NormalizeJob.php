@@ -2,11 +2,10 @@
 
 namespace EscapeWork\LaravelSteroids\Upload;
 
-use Illuminate\Contracts\Bus\SelfHandling;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use EscapeWork\LaravelSteroids\Upload\UploadCollection;
 
-class NormalizeJob extends Job implements SelfHandling
+class NormalizeJob extends Job
 {
 
     private $collection;

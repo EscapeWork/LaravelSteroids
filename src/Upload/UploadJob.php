@@ -2,10 +2,9 @@
 
 namespace EscapeWork\LaravelSteroids\Upload;
 
-use Illuminate\Contracts\Bus\SelfHandling;
 use EscapeWork\LaravelSteroids\Upload\UploadCollection;
 
-class UploadJob extends Job implements SelfHandling
+class UploadJob extends Job
 {
 
     public $dir;
