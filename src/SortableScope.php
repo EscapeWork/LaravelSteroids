@@ -4,9 +4,9 @@ namespace EscapeWork\LaravelSteroids;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use Illuminate\Database\Eloquent\ScopeInterface;
+use Illuminate\Database\Eloquent\Scope;
 
-class SortableScope implements ScopeInterface
+class SortableScope implements Scope
 {
 
     private $column;
