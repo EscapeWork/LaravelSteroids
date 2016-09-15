@@ -13,7 +13,7 @@ class ValidateJob extends Job
      */
     public function handle($command, $next)
     {
-        $command->files()->transform(function ($item) use ($command) {
+        $command->files()->transform(function($item) use ($command) {
             $validateService = app('EscapeWork\LaravelSteroids\Upload\ValidateFilenameService');
 
             return [

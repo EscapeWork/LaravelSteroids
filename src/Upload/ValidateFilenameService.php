@@ -6,7 +6,6 @@ use Illuminate\Filesystem\Filesystem;
 
 class ValidateFilenameService
 {
-
     /**
      * @var Illuminate\Filesystem\Filesystem
      */
@@ -25,7 +24,7 @@ class ValidateFilenameService
     public function execute($basepath, $filename)
     {
         $path      = $basepath . '/' . $filename;
-        $extension = $this->filesystem->extension($filename);
+        $extension = mb_strtolower($this->filesystem->extension($filename));
         $filename  = str_replace('.' . $extension, null, $filename);
         $count     = 0;
 

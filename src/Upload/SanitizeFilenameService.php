@@ -19,7 +19,7 @@ class SanitizeFilenameService
             return Str::slug($filename);
         }
 
-        $extension = substr($filename, ($pos + 1));
+        $extension = mb_strtolower(substr($filename, ($pos + 1)));
         $pos       = strripos($filename, '.');
         $newName   = substr($filename, 0, $pos);
         $newName   = Str::slug($newName) . '.' . $extension;
