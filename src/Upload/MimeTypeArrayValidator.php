@@ -10,7 +10,7 @@ class MimeTypeArrayValidator
 
     public function validate($attribute, $files, $parameters)
     {
-        $parameters = count($parameters) === 0 ? ['jpg', 'jpeg', 'png'] : $parameters;
+        $parameters = count($parameters) === 0 ? ['jpg', 'jpeg', 'pjpeg', 'png'] : $parameters;
 
         if (! is_array($files)) {
             return false;
