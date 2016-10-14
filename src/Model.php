@@ -80,28 +80,6 @@ abstract class Model extends Eloquent
         $this->attributes[$field] = (float) $value;
     }
 
-    public function scopeSearch($query, $field, $value)
-    {
-        $terms = explode(' ', $this->_removeRedexpValues($value));
-
-        if (config('database.default') == 'sqlite') {
-            return $query->where($field, 'like', '%'.$value.'%');
-        }
-
-        return $query->where($field, 'REGEXP', implode('.+', $terms));
-    }
-
-    public function scopeOrSearch($query, $field, $value)
-    {
-        $terms = explode(' ', $this->_removeRedexpValues($value));
-
-        if (config('database.default') == 'sqlite') {
-            return $query->orWhere($field, 'like', '%'.$value.'%');
-        }
-
-        return $query->orWhere($field, 'REGEXP', implode('.+', $terms));
-    }
-
     public function _removeRedexpValues($value)
     {
         return trim(str_replace(['[', ']', '(', ')', '+'], ' ', $value));
