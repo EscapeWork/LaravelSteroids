@@ -100,11 +100,13 @@ class Product extends Model
     use Cacheable;
 
     protected $cacheable = [
-        'actives',
-        'all',
         // here you need to put your cache keys that need to be cleared
-        // rembmer: they will be fogot with the table name as prefix
-        // example: products.actives, products.all
+        'products.actives',
+        'products.all',
+
+        // you can also use some attribute to be replaced
+        // in this case, the {category_id} will be replaced with $product->category_id,
+        'products.category.{category_id}'
     ];
 }
 ```
