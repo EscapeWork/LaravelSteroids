@@ -2,11 +2,11 @@
 
 namespace EscapeWork\LaravelSteroids\Upload;
 
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class MoveJob extends Job
 {
-
     /**
      * Handle the command.
      *
@@ -15,8 +15,13 @@ class MoveJob extends Job
      */
     public function handle($command, $next)
     {
-        $command->files()->transform(function ($item) use ($command) {
-            $item['file']->move($command->dir, $item['name']);
+        $command->files()->transform(function($item) use ($command) {
+            $item['file']->storeAs(
+                $command->dir,
+                $item['name'],
+                $command->disk,
+                'public'
+            );
 
             return $item['name'];
         });

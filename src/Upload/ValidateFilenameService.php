@@ -3,6 +3,7 @@
 namespace EscapeWork\LaravelSteroids\Upload;
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Storage;
 
 class ValidateFilenameService
 {
@@ -21,14 +22,14 @@ class ValidateFilenameService
         $this->filesystem = $filesystem;
     }
 
-    public function execute($basepath, $filename)
+    public function execute($basepath, $filename, $disk = null)
     {
         $path      = $basepath . '/' . $filename;
         $extension = mb_strtolower($this->filesystem->extension($filename));
         $filename  = str_replace('.' . $extension, null, $filename);
         $count     = 0;
 
-        while ($this->filesystem->exists($path) || in_array($path, static::$names)) {
+        while (Storage::disk($disk)->exists($path) || in_array($path, static::$names)) {
             $count++;
 
             $path = $basepath . '/' . $filename . '-' . $count . '.' . $extension;

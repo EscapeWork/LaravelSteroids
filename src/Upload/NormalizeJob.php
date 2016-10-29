@@ -2,12 +2,15 @@
 
 namespace EscapeWork\LaravelSteroids\Upload;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use EscapeWork\LaravelSteroids\Upload\SanitizeFilenameService;
 use EscapeWork\LaravelSteroids\Upload\UploadCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class NormalizeJob extends Job
 {
-
+    /**
+     * @var EscapeWork\LaravelSteroids\Upload\UploadCollection
+     */
     private $collection;
 
     public function __construct(UploadCollection $collection)
@@ -39,15 +42,17 @@ class NormalizeJob extends Job
 
     private function normalizeFiles(array $files)
     {
-        $sanitize = app('EscapeWork\LaravelSteroids\Upload\SanitizeFilenameService');
+        $sanitize = app(SanitizeFilenameService::class);
 
         foreach ($files as $file) {
-            $filename = $sanitize->execute($file->getClientOriginalName());
+            $filename = $sanitize->execute(
+                $file->getClientOriginalName()
+            );
+
             $this->collection->push([
                 'name' => $filename,
                 'file' => $file,
             ]);
         }
     }
-
 }

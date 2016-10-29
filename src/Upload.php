@@ -19,7 +19,15 @@ class Upload
      */
     private $dispatcher;
 
-    private $dir;
+    /**
+     * @var string
+     */
+    public $dir;
+
+    /**
+     * @var string
+     */
+    public $disk;
 
     public function __construct(Dispatcher $dispatcher)
     {
@@ -30,7 +38,12 @@ class Upload
     public function to($dir)
     {
         $this->dir = $dir;
+        return $this;
+    }
 
+    public function disk($disk)
+    {
+        $this->disk = $disk;
         return $this;
     }
 
@@ -46,7 +59,7 @@ class Upload
             'EscapeWork\LaravelSteroids\Upload\MoveJob',
         ]);
 
-        $dispatched = $this->dispatch(new UploadJob($files, $this->dir));
+        $dispatched = $this->dispatch(new UploadJob($files, $this->dir, $this->disk));
         $this->dispatcher->pipeThrough([]);
 
         return $dispatched;
