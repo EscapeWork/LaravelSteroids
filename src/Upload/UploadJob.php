@@ -7,7 +7,7 @@ use EscapeWork\LaravelSteroids\Upload\UploadCollection;
 class UploadJob extends Job
 {
 
-    public $dir;
+    public $dir, $disk;
     private $files;
 
     /**
@@ -15,10 +15,11 @@ class UploadJob extends Job
      *
      * @return void
      */
-    public function __construct($files, $dir)
+    public function __construct($files, $dir, $disk = null)
     {
         $this->files = $files;
         $this->dir   = $dir;
+        $this->disk  = $disk;
     }
 
 
@@ -41,5 +42,3 @@ class UploadJob extends Job
         return $this->files;
     }
 }
-
-
