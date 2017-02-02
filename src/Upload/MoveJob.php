@@ -19,8 +19,10 @@ class MoveJob extends Job
             $item['file']->storeAs(
                 $command->dir,
                 $item['name'],
-                $command->disk,
-                'public'
+                [
+                    'visibility' => 'public',
+                    'disk'       => $command->disk
+                ]
             );
 
             return $item['name'];
