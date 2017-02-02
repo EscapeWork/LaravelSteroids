@@ -7,7 +7,7 @@ Just some goodies for making your Laravel Project even better.
 ## Installation
 
 ```sh
-$ composer require "escapework/laravel-steroids:0.5.*"
+$ composer require "escapework/laravel-steroids:0.6.*"
 ```
 
 ## Usage
