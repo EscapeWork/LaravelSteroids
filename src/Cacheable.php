@@ -20,7 +20,19 @@ trait Cacheable
     public function clearCaches()
     {
         foreach ($this->cacheables as $cacheable) {
-            Cache::forget($cacheable);
+            preg_match_all('/{.+}/', $cacheable, $bindings);
+
+            if (count($bindings) > 0) {
+                $bind   = $bindings[0][0];
+                $field  = str_replace(['{', '}'], ['', ''], $bind);
+                $values = (array) $this->{$field};
+
+                foreach ($values as $value) {
+                    Cache::forget(str_replace($bind, $value, $cacheable));
+                }
+            } else {
+                Cache::forget($cacheable);
+            }
         }
     }
 }
