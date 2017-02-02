@@ -22,7 +22,7 @@ trait Cacheable
         foreach ($this->cacheables as $cacheable) {
             preg_match_all('/{.+}/', $cacheable, $bindings);
 
-            if (count($bindings) > 0) {
+            if (isset($bindings[0]) && isset($bindings[0][0])) {
                 $bind   = $bindings[0][0];
                 $field  = str_replace(['{', '}'], ['', ''], $bind);
                 $values = (array) $this->{$field};
