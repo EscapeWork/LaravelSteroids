@@ -1,8 +1,17 @@
 # Laravel on Steroids
 
-[![Build Status](https://travis-ci.org/EscapeWork/LaravelSteroids.png)](http://travis-ci.org/EscapeWork/LaravelSteroids) [![Latest Stable Version](https://poser.pugx.org/escapework/laravel-steroids/v/stable.png)](https://packagist.org/packages/escapework/laravel-steroids) [![Total Downloads](https://poser.pugx.org/escapework/laravel-steroids/downloads.png)](https://packagist.org/packages/escapework/laravel-steroids)
+[![Build Status](https://travis-ci.org/EscapeWork/LaravelSteroids.png)](http://travis-ci.org/EscapeWork/LaravelSteroids) [![Latest Stable Version](https://poser.pugx.org/escapework/laravel-steroids/v/stable.png)](https://packagist.org/packages/escapework/laravel-steroids) [![Total Downloads](https://poser.pugx.org/escapework/laravel-steroids/downloads.png)](https://packagist.org/packages/escapework/laravel-steroids) [![MIT Licence](https://github.com/EscapeWork/LaravelSteroids)](https://img.shields.io/packagist/l/EscapeWork/laramedias.svg?style=flat)
 
 Just some goodies for making your Laravel Project even better.
+
+## Version Compatibility
+
+ Laravel  | Laramedias
+:---------|:----------
+ 5.4.x    | 0.6.x@dev
+ 5.3.x    | 0.5.x
+ 5.2.x    | 0.4.x
+ 5.1.x    | 0.3.x
 
 ## Installation
 
