@@ -5,7 +5,7 @@ namespace EscapeWork\LaravelSteroids;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-trait SluggableTrait
+trait Sluggable
 {
 
     public function update(array $attributes = [], array $options = [])

@@ -35,14 +35,14 @@ class Product extends Model
 
 ### Presenters
 
-Just add a `PresentableTrait` in your model:
+Just add a `Presentable` in your model:
 
 ```php
-use EscapeWork\LaravelSteroids\PresentableTrait;
+use EscapeWork\LaravelSteroids\Presentable;
 
 class Product extends Model
 {
-    use PresentableTrait;
+    use Presentable;
 
     protected $presenter = 'App\Presenters\ProductPresenter';
 }
@@ -72,24 +72,24 @@ echo $product->present->title;
 
 ### Sluggable
 
-Want to make slugs with your model? Just add the `SluggableTrait` to your model.
+Want to make slugs with your model? Just add the `Sluggable` to your model.
 
 ```php
-use EscapeWork\LaravelSteroids\SluggableTrait;
+use EscapeWork\LaravelSteroids\Sluggable;
 
 class Product extends Model
 {
-    use SluggableTrait;
+    use Sluggable;
 }
 ```
 
-By default, when your model is created/updated, `SluggableTrait` will take your `$title` attribute, create a unique slug and put the value in the `$slug` attribute.
+By default, when your model is created/updated, `Sluggable` will take your `$title` attribute, create a unique slug and put the value in the `$slug` attribute.
 If you want to change the field that is used to create the slug, just put a `$sluggableAttr` property on your model. And if you want to change the slug field, add the `$sluggableField` property.
 
 ```php
 class User extends Model
 {
-    use SluggableTrait;
+    use Sluggable;
     protected $sluggableAttr  = 'name';
     protected $sluggableField = 'username';
 }
@@ -125,11 +125,11 @@ class Product extends Model
 Do you want to sort your models automatically? Easy.
 
 ```php
-use EscapeWork\LaravelSteroids\SortableTrait;
+use EscapeWork\LaravelSteroids\Sortable;
 
 class Banner extends Model
 {
-    use SortableTrait;
+    use Sortable;
 }
 ```
 

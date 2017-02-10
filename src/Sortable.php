@@ -4,7 +4,7 @@ namespace EscapeWork\LaravelSteroids;
 
 use Illuminate\Support\Str;
 
-trait SortableTrait
+trait Sortable
 {
     /**
      * @var array

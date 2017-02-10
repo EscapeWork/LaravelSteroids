@@ -2,7 +2,7 @@
 
 namespace EscapeWork\LaravelSteroids;
 
-trait PresentableTrait
+trait Presentable
 {
     /**
      * The presenter
