@@ -1,5 +1,7 @@
 <?php
 
+namespace EscapeWork\LaravelSteroids;
+
 trait Ordenable
 {
     /**
