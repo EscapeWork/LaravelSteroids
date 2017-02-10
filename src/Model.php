@@ -80,11 +80,6 @@ abstract class Model extends Eloquent
         $this->attributes[$field] = (float) $value;
     }
 
-    public function _removeRedexpValues($value)
-    {
-        return trim(str_replace(['[', ']', '(', ')', '+'], ' ', $value));
-    }
-
     public static function seed($data)
     {
         $model      = new static;

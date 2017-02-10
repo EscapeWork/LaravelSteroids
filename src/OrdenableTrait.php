@@ -5,17 +5,14 @@ trait OrdenableTrait
     /**
      * Sortable fields
      */
-    protected $ordenables = [
-        'products.price',
-        'products.hits',
-    ];
+    protected $ordenables = [];
 
     /**
      * Default order by field
      * @var [type]
      */
     protected $ordenableDefault = [
-        'field'     => 'products.hits',
+        'field'     => 'created_at',
         'direction' => 'desc',
     ];
 

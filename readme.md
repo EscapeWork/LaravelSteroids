@@ -135,15 +135,50 @@ class Banner extends Model
 
 Then:
 
-```
+```php
 Banner::create(['title' => 'First Banner'])->order;  // 1
 Banner::create(['title' => 'Second Banner'])->order; // 2
 ```
 
 If you `order` field is not called `order`, you just need to specify:
 
-```
+```php
 protected $sortable = [
     'field' => 'order',
 ];
 ```
+
+### Ordenable
+
+Want to easily change the orderBy in your query? Easy.
+
+```php
+use EscapeWork\LaravelSteroids\OrdenableTrait;
+
+class Product extends Model
+{
+    use OrdenableTrait;
+
+    protected $ordenables = [
+        'price',
+        'hits'
+    ];
+
+    protected $ordenableDefault = [
+        'field'     => 'created_at',
+        'direction' => 'desc',
+    ];
+}
+```
+
+Then, when querying:
+
+```php
+$products = Product::where(...)->order('price', 'desc')->get();
+```
+
+If you try to order for a field that is not in the `$ordenables` array, your results will be sorted with the `$ordenableDefault` values.
+
+## License
+
+See the [License](https://github.com/EscapeWork/LaravelSteroids/blob/master/LICENSE) file.
