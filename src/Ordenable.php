@@ -1,6 +1,6 @@
 <?php
 
-trait OrdenableTrait
+trait Ordenable
 {
     /**
      * Sortable fields

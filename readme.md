@@ -153,11 +153,11 @@ protected $sortable = [
 Want to easily change the orderBy in your query? Easy.
 
 ```php
-use EscapeWork\LaravelSteroids\OrdenableTrait;
+use EscapeWork\LaravelSteroids\Ordenable;
 
 class Product extends Model
 {
-    use OrdenableTrait;
+    use Ordenable;
 
     protected $ordenables = [
         'price',
