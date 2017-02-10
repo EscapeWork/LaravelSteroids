@@ -119,3 +119,31 @@ class Product extends Model
     ];
 }
 ```
+
+### Sortable
+
+Do you want to sort your models automatically? Easy.
+
+```php
+use EscapeWork\LaravelSteroids\SortableTrait;
+
+class Banner extends Model
+{
+    use SortableTrait;
+}
+```
+
+Then:
+
+```
+Banner::create(['title' => 'First Banner'])->order;  // 1
+Banner::create(['title' => 'Second Banner'])->order; // 2
+```
+
+If you `order` field is not called `order`, you just need to specify:
+
+```
+protected $sortable = [
+    'field' => 'order',
+];
+```
