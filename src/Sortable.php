@@ -13,7 +13,7 @@ trait Sortable
         'field' => 'order',
     ];
 
-    public static function bootSortableTrait()
+    public static function bootSortable()
     {
         static::creating(function($model) {
             $model->{$model->sortable['field']} = $model->getNextOrder();
