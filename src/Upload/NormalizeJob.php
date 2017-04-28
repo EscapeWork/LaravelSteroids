@@ -28,8 +28,7 @@ class NormalizeJob extends Job
     {
         $files = $this->parseFilesIntoArray($command->files());
 
-        $this->normalizeFiles($files);
-
+        $this->normalizeFiles($files, $command);
         $command->files($this->collection);
 
         return $next($command);
