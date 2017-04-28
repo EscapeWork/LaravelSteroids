@@ -40,14 +40,12 @@ class NormalizeJob extends Job
         return $files instanceof UploadedFile ? [$files] : $files;
     }
 
-    private function normalizeFiles(array $files)
+    private function normalizeFiles(array $files, $command)
     {
         $sanitize = app(SanitizeFilenameService::class);
 
         foreach ($files as $file) {
-            $filename = $sanitize->execute(
-                $file->getClientOriginalName()
-            );
+            $filename = $sanitize->execute($file->getClientOriginalName(), $command->dir);
 
             $this->collection->push([
                 'name' => $filename,

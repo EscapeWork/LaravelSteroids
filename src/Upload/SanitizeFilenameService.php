@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 class SanitizeFilenameService
 {
 
-    public function execute($filename)
+    public function execute($filename, $basepath = null)
     {
         $pos = strripos($filename, '.');
 
