@@ -8,7 +8,8 @@ Just some goodies for making your Laravel Project even better.
 
  Laravel  | Laramedias
 :---------|:----------
- 5.4.x    | 0.6.x@dev
+ 5.5.x    | 0.7.x@dev
+ 5.4.x    | 0.6.x
  5.3.x    | 0.5.x
  5.2.x    | 0.4.x
  5.1.x    | 0.3.x
@@ -16,7 +17,7 @@ Just some goodies for making your Laravel Project even better.
 ## Installation
 
 ```sh
-$ composer require escapework/laravel-steroids:"0.6.*"
+$ composer require escapework/laravel-steroids:"0.7.*"
 ```
 
 ## Usage
